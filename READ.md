@@ -17,7 +17,7 @@ DATABASE_URL="mysql://user:password@127.0.0.1:3306/softnoa"
 Para instalar el proyecto
 
 ```
-git clone https://gitlab.com/promani/elclick.git
+git clone https://github.com/Dylan-Lopez/softnoa.git
 cd soft_noa
 composer install
 ```
