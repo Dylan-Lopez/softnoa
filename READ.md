@@ -3,6 +3,7 @@
 ## Requisitos
 
 - Instalar php
+- Instalar symfony
 - Instalar composer
 - Tener una base de datos
 
