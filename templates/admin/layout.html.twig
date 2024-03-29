@@ -1,0 +1,40 @@
+{% extends 'admin/base.html.twig' %}
+{% block layout %}
+    {% include 'admin/sidebar.html.twig' %}
+    <div class="container-fluid bg-soft">
+        <div class="row">
+            <div class="col-12">
+                <main class="content">
+                    <br>
+                    <div class="row px-2 my-2">
+                        <div class="col-8">
+                            <h3>{% block title %}{% endblock %}</h3>
+                        </div>
+                        <div class="col-4">
+                            <div class="float-end">
+                                {% block buttons %}{% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                    {% for label, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ label }}">
+                                {{ message|raw }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% block parentbody %}
+                        <div class="col-12">
+                            <div class="card border-light shadow-sm">
+                                <div class="card-body overflow-scroll">
+                                    {% block body %}{% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
+                </main>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html.twig' %}
+{% endblock %}

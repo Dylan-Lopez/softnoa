@@ -1,0 +1,53 @@
+{% extends 'admin/layout.html.twig' %}
+{% block title 'Unidades de Medidas' %}
+{% block buttons %}
+    <a class="btn btn-success" href="{{ path('admin_producto_servicio_new') }}">Nuevo</a>
+{% endblock %}
+{% block body %}
+    {% if productoServicioAll is not empty %}
+        <table class="table" id="table">
+            <thead>
+            <tr>
+                <th class="bdwT-0">Id</th>
+                <th class="bdwT-0">Rubro</th>
+                <th class="bdwT-0">Tipo</th>
+                <th class="bdwT-0">Unidad medida</th>
+                <th class="bdwT-0">Codigo</th>
+                <th class="bdwT-0">Producto / Servicio</th>
+                <th class="bdwT-0">Condicion Iva</th>
+                <th class="bdwT-0">PBU</th>
+                <th class="bdwT-0">FECHA</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ps in productoServicioAll %}
+                <tr>
+                    <td>{{ ps.id }}</td>
+                    <td>{{ ps.idRubro.rubro ?? 'N/A' }}</td>
+                    <td>{{ ps.tipo }}</td>
+                    <td>{{ ps.idUnidadMedida.unidadMedida ?? 'N/A' }}</td>
+                    <td>{{ ps.codigo }}</td>
+                    <td>{{ ps.productoServicio }}</td>
+                    <td>{{ ps.idCondicionIva.condicionIva ?? 'N/A' }}</td>
+                    <td>{{ ps.precioBrutoUnitario }}</td>
+                    <td>{{ ps.fecha|date('d-m-Y') }}</td>
+                    </td>
+                    <td class="fit"><a class="btn btn-primary" href="{{ path('admin_producto_servicio_edit', { 'id' : ps.id }) }}">Editar</a></td>
+                    <td class="fit"><a class="btn btn-danger" href="{{ path('admin_producto_servicio_delete', { 'id' : ps.id }) }}">Borrar</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-light">No hay producto / servicio.</div>
+    {% endif %}
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+    </script>
+{% endblock %}

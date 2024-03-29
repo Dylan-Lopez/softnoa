@@ -1,0 +1,8 @@
+{% extends 'admin/layout.html.twig' %}
+{% block title 'Nuevo rubro' %}
+{% block buttons  %}
+    <a class="btn btn-dark" href="{{ path('admin_rubro_list') }}">Volver</a>
+{% endblock %}
+{% block body %}
+    {{ form(form) }}
+{% endblock %}

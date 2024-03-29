@@ -1,0 +1,41 @@
+{% extends 'admin/layout.html.twig' %}
+{% block title 'Condicion Iva' %}
+{% block buttons %}
+    <a class="btn btn-success" href="{{ path('admin_condicion_iva_new') }}">Nuevo</a>
+{% endblock %}
+{% block body %}
+    {% if condicionIvaAll is not empty %}
+        <table class="table" id="table">
+            <thead>
+            <tr>
+                <th class="bdwT-0">Codigo</th>
+                <th class="bdwT-0">Condicion Iva</th>
+                <th class="bdwT-0">Ali Cuota</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ci in condicionIvaAll %}
+                <tr>
+                    <td>{{ ci.codigo }}</td>
+                    <td>{{ ci.condicionIva }}</td>
+                    <td>{{ ci.alicuota }}</td>
+                    </td>
+                    <td class="fit"><a class="btn btn-primary" href="{{ path('admin_condicion_iva_edit', { 'id' : ci.id }) }}">Editar</a></td>
+                    <td class="fit"><a class="btn btn-danger" href="{{ path('admin_condicion_iva_delete', { 'id' : ci.id }) }}">Borrar</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-light">No hay condicion iva.</div>
+    {% endif %}
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+    </script>
+{% endblock %}

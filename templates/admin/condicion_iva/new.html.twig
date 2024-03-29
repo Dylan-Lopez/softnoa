@@ -1,0 +1,8 @@
+{% extends 'admin/layout.html.twig' %}
+{% block title 'Nueva condicion iva' %}
+{% block buttons  %}
+    <a class="btn btn-dark" href="{{ path('admin_condicion_iva_list') }}">Volver</a>
+{% endblock %}
+{% block body %}
+    {{ form(form) }}
+{% endblock %}

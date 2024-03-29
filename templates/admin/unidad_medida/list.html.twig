@@ -1,0 +1,39 @@
+{% extends 'admin/layout.html.twig' %}
+{% block title 'Unidades de Medidas' %}
+{% block buttons %}
+    <a class="btn btn-success" href="{{ path('admin_unidad_medida_new') }}">Nuevo</a>
+{% endblock %}
+{% block body %}
+    {% if unidadMedidaAll is not empty %}
+        <table class="table" id="table">
+            <thead>
+            <tr>
+                <th class="bdwT-0">Codigo</th>
+                <th class="bdwT-0">Unidad de Medida</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for um in unidadMedidaAll %}
+                <tr>
+                    <td>{{ um.codigo }}</td>
+                    <td>{{ um.unidadMedida }}</td>
+                    </td>
+                    <td class="fit"><a class="btn btn-primary" href="{{ path('admin_unidad_medida_edit', { 'id' : um.id }) }}">Editar</a></td>
+                    <td class="fit"><a class="btn btn-danger" href="{{ path('admin_unidad_medida_delete', { 'id' : um.id }) }}">Borrar</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-light">No hay unidad de medida.</div>
+    {% endif %}
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+    </script>
+{% endblock %}

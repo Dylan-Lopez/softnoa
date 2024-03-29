@@ -1,0 +1,51 @@
+.img-card{
+    height: 60px;
+    margin-right: 12px;
+    margin-bottom: 10px;
+  }
+.card_text{
+    margin: 0 !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+  }
+  .footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer {
+    background-color: #ffffff;
+    position: relative;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+  }
+  .carousel-inner {
+    height: 20rem;
+    .carousel-item {
+      height: 100%;
+    }
+    .carousel-info {
+      position: absolute;
+      top: 18%;
+      text-align: center;
+      width: 100%;
+      color: white;
+    }
+  }
+  .img-car{
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    background-size: cover; /* Ajusta la imagen de fondo para que cubra completamente el contenedor */
+    width: 100%;
+    height: 100%;
+  }
+
+  .slider-home-title{
+    font-size: 62px;
+    margin-inline: 120px;
+  }
+  .boton-slider{
+    border-color: #fff;
+    color: #fff;
+  }
